@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tombol SOS: 3 lingkaran bertumpuk (sama seperti desain Figma) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#FDECEE" />
+        </shape>
+    </item>
+    <item
+        android:bottom="28dp"
+        android:left="28dp"
+        android:right="28dp"
+        android:top="28dp">
+        <shape android:shape="oval">
+            <solid android:color="#FAD2D6" />
+        </shape>
+    </item>
+    <item
+        android:bottom="56dp"
+        android:left="56dp"
+        android:right="56dp"
+        android:top="56dp">
+        <shape android:shape="oval">
+            <solid android:color="#E63946" />
+        </shape>
+    </item>
+</layer-list>

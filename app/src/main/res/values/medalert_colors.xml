@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="medalert_red">#E63946</color>
+    <color name="medalert_blue">#1D3557</color>
+    <color name="medalert_green">#2A9D8F</color>
+    <color name="medalert_bg">#F1F5F9</color>
+    <color name="medalert_gray">#475569</color>
+    <color name="medalert_red_light">#FDECEE</color>
+    <color name="medalert_green_light">#E3F4F1</color>
+</resources>
