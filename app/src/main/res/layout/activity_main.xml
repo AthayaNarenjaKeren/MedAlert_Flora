@@ -22,80 +22,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvGreeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Halo"
-        android:textColor="@color/medalert_blue"
-        android:textSize="26sp"
+    <!-- TEMPAT FRAGMENT -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_regular"
-        android:text="Tetap tenang, bantuan ada di sini."
-        android:textColor="@color/medalert_gray"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/tvGreeting"
-        app:layout_constraintTop_toBottomOf="@id/tvGreeting" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardStatus"
+    <!-- BOTTOM NAVIGATION -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        app:cardBackgroundColor="@color/medalert_green_light"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_regular"
-            android:padding="16dp"
-            android:text="●  Data medis lengkap  ·  3 kontak darurat"
-            android:textColor="#1F7A6F"
-            android:textSize="13sp" />
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- TOMBOL SOS -->
-    <TextView
-        android:id="@+id/tvSos"
-        android:layout_width="284dp"
-        android:layout_height="284dp"
-        android:background="@drawable/bg_sos"
-        android:fontFamily="@font/poppins_bold"
-        android:gravity="center"
-        android:text="SOS"
-        android:textColor="#FFFFFF"
-        android:textSize="46sp"
+        android:background="#FFFFFF"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardStatus"
-        app:layout_constraintVertical_bias="0.4" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/inter_regular"
-        android:text="Tekan tombol SOS saat keadaan darurat"
-        android:textColor="@color/medalert_gray"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSos" />
+        app:menu="@menu/bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home" android:icon="@android:drawable/ic_menu_myplaces" android:title="Home" />
+    <item android:id="@+id/nav_card" android:icon="@android:drawable/ic_menu_agenda" android:title="Kartu Medis" />
+    <item android:id="@+id/nav_contact" android:icon="@android:drawable/ic_menu_call" android:title="Kontak" />
+    <item android:id="@+id/nav_faskes" android:icon="@android:drawable/ic_menu_mapmode" android:title="Faskes" />
+    <item android:id="@+id/nav_history" android:icon="@android:drawable/ic_menu_recent_history" android:title="Riwayat" />
+</menu>

@@ -4,15 +4,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import com.example.medalert_flora.fragment.EmergencyContactFragment
+import com.example.medalert_flora.fragment.HistoryFragment
+import com.example.medalert_flora.fragment.HomeFragment
+import com.example.medalert_flora.fragment.MedicalCardFragment
+import com.example.medalert_flora.fragment.NearbyHealthcareFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var bottomNav: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,14 +35,30 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        // Tampilkan nama pengguna yang disimpan saat login
-        val pref = getSharedPreferences("medalert_pref", MODE_PRIVATE)
-        val username = pref.getString("username", "Pengguna")
-        findViewById<TextView>(R.id.tvGreeting).text = "Halo, $username"
-
-        findViewById<TextView>(R.id.tvSos).setOnClickListener {
-            Toast.makeText(this, "SOS ditekan (demo)", Toast.LENGTH_SHORT).show()
+        // Bottom navigation -> ganti fragment
+        bottomNav = findViewById(R.id.bottom_nav)
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> loadFragment(HomeFragment(), "MedAlert")
+                R.id.nav_card -> loadFragment(MedicalCardFragment(), "Medical Card")
+                R.id.nav_contact -> loadFragment(EmergencyContactFragment(), "Kontak Darurat")
+                R.id.nav_faskes -> loadFragment(NearbyHealthcareFragment(), "Faskes Terdekat")
+                R.id.nav_history -> loadFragment(HistoryFragment(), "Riwayat Darurat")
+            }
+            true
         }
+
+        // Tab awal = Home (hanya saat pertama dibuat)
+        if (savedInstanceState == null) {
+            bottomNav.selectedItemId = R.id.nav_home
+        }
+    }
+
+    private fun loadFragment(fragment: Fragment, title: String) {
+        supportActionBar?.title = title
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 
     // Tampilkan menu Logout di toolbar

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:id="@+id/tvGreeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Halo"
+            android:textColor="@color/medalert_blue"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="Tetap tenang, bantuan ada di sini."
+            android:textColor="@color/medalert_gray"
+            android:textSize="14sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            app:cardBackgroundColor="@color/medalert_green_light"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:padding="16dp"
+                android:text="●  Data medis lengkap  ·  3 kontak darurat"
+                android:textColor="#1F7A6F"
+                android:textSize="13sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- TOMBOL SOS -->
+        <TextView
+            android:id="@+id/tvSos"
+            android:layout_width="284dp"
+            android:layout_height="284dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_sos"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="SOS"
+            android:textColor="#FFFFFF"
+            android:textSize="46sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="Tekan tombol SOS saat keadaan darurat"
+            android:textColor="@color/medalert_gray"
+            android:textSize="14sp" />
+
+        <ProgressBar
+            android:id="@+id/progressSos"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:max="100"
+            android:progressTint="@color/medalert_red"
+            android:visibility="gone" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:checked="true"
+            android:fontFamily="@font/inter_regular"
+            android:text="Bagikan lokasi saat SOS"
+            android:textColor="@color/medalert_gray" />
+
+        <CheckBox
+            android:id="@+id/cbSms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:checked="true"
+            android:fontFamily="@font/inter_regular"
+            android:text="Kirim SMS ke kontak darurat"
+            android:textColor="@color/medalert_gray" />
+    </LinearLayout>
+</ScrollView>
