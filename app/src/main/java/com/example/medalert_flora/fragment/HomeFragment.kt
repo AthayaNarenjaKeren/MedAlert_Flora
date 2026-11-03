@@ -29,5 +29,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         view.findViewById<View>(R.id.cardCall).setOnClickListener { requireContext().dial("112") }
         view.findViewById<View>(R.id.cardAmbulance).setOnClickListener { requireContext().dial("119") }
         view.findViewById<View>(R.id.cardFaskes).setOnClickListener { main.openFaskes() }
+        view.findViewById<View>(R.id.cardTips).setOnClickListener { main.openTips() }
     }
 }

@@ -22,6 +22,7 @@ import com.example.medalert_flora.fragment.HomeFragment
 import com.example.medalert_flora.fragment.MedicalCardFragment
 import com.example.medalert_flora.fragment.NearbyHealthcareFragment
 import com.example.medalert_flora.fragment.SosConfirmFragment
+import com.example.medalert_flora.fragment.WebViewFragment
 import com.example.medalert_flora.model.DummyData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -109,6 +110,8 @@ class MainActivity : AppCompatActivity() {
     fun startSos() = showOverlay(SosConfirmFragment(), true, R.color.medalert_pink_bg)
 
     fun openFaskes() = showOverlay(NearbyHealthcareFragment(), true, R.color.medalert_bg)
+
+    fun openTips() = showOverlay(WebViewFragment(), true, R.color.medalert_bg)
 
     fun startEmergency() {
         // catat ke riwayat
