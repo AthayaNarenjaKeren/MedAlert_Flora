@@ -5,19 +5,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/medalert_bg"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <!-- TOOLBAR -->
+    <!-- TOOLBAR: putih, ada bayangan, judul tebal -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/medalert_blue"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:elevation="6dp"
+        android:theme="@style/ThemeOverlay.MedAlert.Toolbar"
         app:logo="@drawable/ic_medalert_logo_small"
         app:title="MedAlert"
-        app:titleTextColor="#FFFFFF"
+        app:titleMarginStart="10dp"
+        app:titleTextAppearance="@style/TextAppearance.MedAlert.Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +29,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/medalert_bg"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +41,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
+        android:elevation="8dp"
+        app:itemActiveIndicatorStyle="@null"
         app:itemIconTint="@color/nav_item_color"
         app:itemTextColor="@color/nav_item_color"
         app:labelVisibilityMode="labeled"

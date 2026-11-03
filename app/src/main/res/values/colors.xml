@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="medalert_stroke">#E6EAF0</color>
+    <color name="medalert_teal">#1F9D8A</color>
+    <color name="medalert_teal_light">#E3F4F1</color>
+    <color name="medalert_green_text">#1F8A5B</color>
+    <color name="medalert_pink_bg">#FDECEE</color>
+    <color name="medalert_red_track">#F8C9CF</color>
 </resources>

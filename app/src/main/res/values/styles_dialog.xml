@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema dialog: radio, checkbox, dan tombol memakai warna merah MedAlert (bukan ungu) -->
+    <style name="ThemeOverlay.MedAlert.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/medalert_red</item>
+    </style>
+</resources>

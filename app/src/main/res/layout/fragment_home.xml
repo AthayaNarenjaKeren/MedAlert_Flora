@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -9,47 +8,77 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="24dp">
+        android:paddingBottom="16dp">
 
-        <TextView
-            android:id="@+id/tvGreeting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Halo"
-            android:textColor="@color/medalert_blue"
-            android:textSize="26sp" />
-
-        <TextView
-            android:id="@+id/tvSubtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="Tetap tenang, bantuan ada di sini."
-            android:textColor="@color/medalert_gray"
-            android:textSize="14sp" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardStatus"
+        <!-- Sapaan + avatar -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Halo"
+                    android:textColor="@color/medalert_blue"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Tetap tenang, bantuan ada di sini."
+                    android:textColor="@color/medalert_gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvAvatar"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_avatar_navy"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="RA"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Kartu status -->
+        <com.google.android.material.card.MaterialCardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             app:cardBackgroundColor="@color/medalert_green_light"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="0dp">
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
 
             <TextView
                 android:id="@+id/tvStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/dot_teal"
+                android:drawablePadding="10dp"
                 android:fontFamily="@font/inter_regular"
+                android:gravity="center_vertical"
                 android:padding="16dp"
-                android:text="●  Data medis lengkap  ·  3 kontak darurat"
+                android:text="Data medis lengkap  ·  3 kontak darurat"
                 android:textColor="#1F7A6F"
                 android:textSize="13sp" />
         </com.google.android.material.card.MaterialCardView>
@@ -57,59 +86,143 @@
         <!-- TOMBOL SOS -->
         <TextView
             android:id="@+id/tvSos"
-            android:layout_width="284dp"
-            android:layout_height="284dp"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bg_sos"
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:text="SOS"
             android:textColor="#FFFFFF"
-            android:textSize="46sp" />
+            android:textSize="44sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_regular"
             android:text="Tekan tombol SOS saat keadaan darurat"
-            android:textColor="@color/medalert_gray"
+            android:textColor="@color/medalert_blue"
             android:textSize="14sp" />
 
-        <ProgressBar
-            android:id="@+id/progressSos"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="24dp"
-            android:max="100"
-            android:progressTint="@color/medalert_red"
-            android:visibility="gone" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switchLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:checked="true"
-            android:fontFamily="@font/inter_regular"
-            android:text="Bagikan lokasi saat SOS"
-            android:textColor="@color/medalert_gray" />
-
-        <CheckBox
-            android:id="@+id/cbSms"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:checked="true"
+            android:layout_gravity="center_horizontal"
             android:fontFamily="@font/inter_regular"
-            android:text="Kirim SMS ke kontak darurat"
-            android:textColor="@color/medalert_gray" />
+            android:text="Ada hitung mundur 5 detik, bisa dibatalkan"
+            android:textColor="@color/medalert_gray"
+            android:textSize="12sp" />
+
+        <!-- Akses cepat -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/cardCall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_pink_circle"
+                    android:contentDescription="Telepon 112"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="Telepon\n112"
+                    android:textColor="@color/medalert_blue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardAmbulance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_pink_circle"
+                    android:contentDescription="Ambulans 119"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_cross" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="Ambulans\n119"
+                    android:textColor="@color/medalert_blue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardFaskes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_teal_circle"
+                    android:contentDescription="Faskes Terdekat"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_pin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="Faskes\nTerdekat"
+                    android:textColor="@color/medalert_blue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

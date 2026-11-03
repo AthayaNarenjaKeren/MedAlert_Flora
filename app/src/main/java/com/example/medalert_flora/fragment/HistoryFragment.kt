@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.medalert_flora.R
 import com.example.medalert_flora.model.DummyData
 
+// ListView dengan ArrayAdapter (simple adapter), tampilan itemnya memakai layout sendiri
 class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     private lateinit var adapter: ArrayAdapter<String>
@@ -16,7 +17,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         super.onViewCreated(view, savedInstanceState)
         val lv = view.findViewById<ListView>(R.id.lvHistory)
         lv.emptyView = view.findViewById(R.id.tvEmptyHistory)
-        adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, DummyData.history)
+        adapter = ArrayAdapter(requireContext(), R.layout.item_history, R.id.tvHistory, DummyData.history)
         lv.adapter = adapter
     }
 

@@ -2,64 +2,96 @@ package com.example.medalert_flora.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.EditText
 import android.widget.ListView
-import android.widget.Toast
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.medalert_flora.R
+import com.example.medalert_flora.adapter.ContactAdapter
+import com.example.medalert_flora.dial
 import com.example.medalert_flora.model.DummyData
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 
-// ListView dengan SIMPLE LIST ITEM (ArrayAdapter + simple_list_item_1)
 class EmergencyContactFragment : Fragment(R.layout.fragment_emergency_contact) {
+
+    private lateinit var adapter: ContactAdapter
+    private lateinit var tvSubtitle: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val lv = view.findViewById<ListView>(R.id.lvContacts)
         val fab = view.findViewById<FloatingActionButton>(R.id.fabAdd)
+        tvSubtitle = view.findViewById(R.id.tvSubtitle)
         lv.emptyView = view.findViewById(R.id.tvEmpty)
 
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, DummyData.contacts)
+        adapter = ContactAdapter(requireContext(), DummyData.contacts)
         lv.adapter = adapter
+        refreshSubtitle()
 
-        // Klik item
+        // Klik kontak -> buka aplikasi telepon
         lv.setOnItemClickListener { _, _, position, _ ->
-            Toast.makeText(requireContext(), "Menghubungi ${DummyData.contacts[position]}", Toast.LENGTH_SHORT).show()
+            val number = DummyData.contacts[position].substringAfter(" - ", "")
+                .filter { it.isDigit() || it == '+' }
+            if (number.isEmpty()) {
+                Snackbar.make(view, "Nomor belum diisi", Snackbar.LENGTH_SHORT).show()
+            } else {
+                requireContext().dial(number)
+            }
         }
 
-        // Tekan lama -> hapus
+        // Tekan lama -> hapus (bisa dibatalkan lewat Snackbar)
         lv.setOnItemLongClickListener { _, _, position, _ ->
+            val item = DummyData.contacts[position]
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Hapus kontak?")
-                .setMessage(DummyData.contacts[position])
+                .setMessage(item)
                 .setPositiveButton("Hapus") { _, _ ->
                     DummyData.contacts.removeAt(position)
                     adapter.notifyDataSetChanged()
+                    refreshSubtitle()
+                    Snackbar.make(view, "Kontak dihapus", Snackbar.LENGTH_LONG)
+                        .setAction("Batalkan") {
+                            DummyData.contacts.add(position, item)
+                            adapter.notifyDataSetChanged()
+                            refreshSubtitle()
+                        }.show()
                 }
                 .setNegativeButton("Batal", null)
                 .show()
             true
         }
 
-        // Tambah kontak
-        fab.setOnClickListener {
-            val input = EditText(requireContext())
-            input.hint = "Nama - Nomor HP"
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Tambah Kontak Darurat")
-                .setView(input)
-                .setPositiveButton("Simpan") { _, _ ->
-                    val text = input.text.toString().trim()
-                    if (text.isNotEmpty()) {
-                        DummyData.contacts.add(text)
-                        adapter.notifyDataSetChanged()
-                    }
+        fab.setOnClickListener { showAddDialog(view) }
+    }
+
+    private fun refreshSubtitle() {
+        tvSubtitle.text = "${DummyData.contacts.size} kontak akan dihubungi saat SOS"
+    }
+
+    private fun showAddDialog(root: View) {
+        val v = layoutInflater.inflate(R.layout.dialog_add_contact, null)
+        val etName = v.findViewById<TextInputEditText>(R.id.etContactName)
+        val etPhone = v.findViewById<TextInputEditText>(R.id.etContactPhone)
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Tambah Kontak Darurat")
+            .setView(v)
+            .setPositiveButton("Simpan") { _, _ ->
+                val name = etName.text.toString().trim()
+                val phone = etPhone.text.toString().trim()
+                if (name.isEmpty() || phone.isEmpty()) {
+                    Snackbar.make(root, "Nama dan nomor HP wajib diisi", Snackbar.LENGTH_SHORT).show()
+                } else {
+                    DummyData.contacts.add("$name - $phone")
+                    adapter.notifyDataSetChanged()
+                    refreshSubtitle()
+                    Snackbar.make(root, "Kontak ditambahkan", Snackbar.LENGTH_SHORT).show()
                 }
-                .setNegativeButton("Batal", null)
-                .show()
-        }
+            }
+            .setNegativeButton("Batal", null)
+            .show()
     }
 }
