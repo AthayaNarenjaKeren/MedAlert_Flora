@@ -20,15 +20,16 @@ class SplashActivity : AppCompatActivity() {
             insets
         }
 
-        // Tunggu 2 detik, lalu cek apakah pengguna sudah login
+        // Tunggu 2 detik, lalu tentukan tujuan
         Handler(Looper.getMainLooper()).postDelayed({
             val pref = getSharedPreferences("medalert_pref", MODE_PRIVATE)
-            val isLogin = pref.getBoolean("isLogin", false)   // default false
+            val tutorialSeen = pref.getBoolean("tutorial_seen", false)   // default false
+            val isLogin = pref.getBoolean("isLogin", false)              // default false
 
-            val tujuan = if (isLogin) {
-                MainActivity::class.java      // sudah login -> langsung ke Home
-            } else {
-                LoginActivity::class.java     // belum login -> ke halaman Login
+            val tujuan = when {
+                !tutorialSeen -> TutorialActivity::class.java   // pertama kali -> Tutorial Screen
+                isLogin -> MainActivity::class.java             // sudah login -> Home
+                else -> LoginActivity::class.java               // belum login -> Login
             }
             startActivity(Intent(this, tujuan))
             finish()   // tutup Splash supaya tombol Back tidak kembali ke sini

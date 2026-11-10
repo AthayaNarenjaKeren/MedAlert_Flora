@@ -25,10 +25,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         // SOS -> layar Konfirmasi SOS (hitung mundur)
         view.findViewById<TextView>(R.id.tvSos).setOnClickListener { main.startSos() }
 
-        // Akses cepat
+        // Menu GridLayout
         view.findViewById<View>(R.id.cardCall).setOnClickListener { requireContext().dial("112") }
         view.findViewById<View>(R.id.cardAmbulance).setOnClickListener { requireContext().dial("119") }
         view.findViewById<View>(R.id.cardFaskes).setOnClickListener { main.openFaskes() }
+        view.findViewById<View>(R.id.cardPolice).setOnClickListener { requireContext().dial("110") }
+        view.findViewById<View>(R.id.cardFire).setOnClickListener { requireContext().dial("113") }
         view.findViewById<View>(R.id.cardTips).setOnClickListener { main.openTips() }
     }
 }

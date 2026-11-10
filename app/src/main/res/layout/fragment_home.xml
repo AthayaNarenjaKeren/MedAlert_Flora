@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -10,15 +11,17 @@
         android:orientation="vertical"
         android:paddingBottom="16dp">
 
-        <!-- Sapaan + avatar -->
+        <!-- HEADER GELOMBANG (bg_header_wave) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_header_wave"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="24dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="56dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -32,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Halo"
-                    android:textColor="@color/medalert_blue"
+                    android:textColor="#FFFFFF"
                     android:textSize="28sp" />
 
                 <TextView
@@ -40,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_regular"
                     android:text="Tetap tenang, bantuan ada di sini."
-                    android:textColor="@color/medalert_gray"
+                    android:textColor="#C9D3E3"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -48,21 +51,20 @@
                 android:id="@+id/tvAvatar"
                 android:layout_width="44dp"
                 android:layout_height="44dp"
-                android:background="@drawable/bg_avatar_navy"
+                android:background="@drawable/bg_circle_white"
                 android:fontFamily="@font/poppins_bold"
                 android:gravity="center"
                 android:text="RA"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/medalert_blue"
                 android:textSize="14sp" />
         </LinearLayout>
 
         <!-- Kartu status -->
         <com.google.android.material.card.MaterialCardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="24dp"
             app:cardBackgroundColor="@color/medalert_green_light"
             app:cardCornerRadius="14dp"
@@ -86,22 +88,22 @@
         <!-- TOMBOL SOS -->
         <TextView
             android:id="@+id/tvSos"
-            android:layout_width="260dp"
-            android:layout_height="260dp"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/bg_sos"
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:text="SOS"
             android:textColor="#FFFFFF"
-            android:textSize="44sp" />
+            android:textSize="42sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/inter_regular"
             android:text="Tekan tombol SOS saat keadaan darurat"
             android:textColor="@color/medalert_blue"
@@ -116,167 +118,224 @@
             android:textColor="@color/medalert_gray"
             android:textSize="12sp" />
 
-        <!-- Akses cepat -->
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Akses Cepat"
+            android:textColor="@color/medalert_blue"
+            android:textSize="15sp" />
+
+        <!-- GRIDLAYOUT: 6 menu dalam 3 kolom -->
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridQuick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="20dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/cardCall"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_card"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_icon_pink_circle"
-                    android:contentDescription="Telepon 112"
-                    android:padding="9dp"
-                    android:src="@drawable/ic_phone" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:gravity="center"
-                    android:text="Telepon\n112"
-                    android:textColor="@color/medalert_blue"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/cardAmbulance"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_card"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_icon_pink_circle"
-                    android:contentDescription="Ambulans 119"
-                    android:padding="9dp"
-                    android:src="@drawable/ic_cross" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:gravity="center"
-                    android:text="Ambulans\n119"
-                    android:textColor="@color/medalert_blue"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/cardFaskes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_card"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_icon_teal_circle"
-                    android:contentDescription="Faskes Terdekat"
-                    android:padding="9dp"
-                    android:src="@drawable/ic_pin" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:gravity="center"
-                    android:text="Faskes\nTerdekat"
-                    android:textColor="@color/medalert_blue"
-                    android:textSize="12sp" />
-            </LinearLayout>
-        </LinearLayout>
+            app:columnCount="3">
 
         <LinearLayout
-            android:id="@+id/cardTips"
-            android:layout_width="match_parent"
+            android:id="@+id/cardCall"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="24dp"
+            android:layout_margin="4dp"
             android:background="@drawable/bg_card"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="14dp">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_icon_pink_circle"
-                android:contentDescription="Tips P3K"
+                android:contentDescription="Telepon\n112"
                 android:padding="9dp"
-                android:src="@drawable/ic_cross" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="Tips Pertolongan Pertama"
-                    android:textColor="@color/medalert_blue"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_regular"
-                    android:text="Panduan P3K sebelum bantuan datang"
-                    android:textColor="@color/medalert_gray"
-                    android:textSize="12sp" />
-            </LinearLayout>
+                android:src="@drawable/ic_phone" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="›"
-                android:textColor="@color/medalert_gray"
-                android:textSize="24sp" />
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Telepon\n112"
+                android:textColor="@color/medalert_blue"
+                android:textSize="12sp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardAmbulance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_pink_circle"
+                android:contentDescription="Ambulans\n119"
+                android:padding="9dp"
+                android:src="@drawable/ic_cross" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Ambulans\n119"
+                android:textColor="@color/medalert_blue"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardFaskes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_teal_circle"
+                android:contentDescription="Faskes\nTerdekat"
+                android:padding="9dp"
+                android:src="@drawable/ic_pin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Faskes\nTerdekat"
+                android:textColor="@color/medalert_blue"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardPolice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_navy_circle"
+                android:contentDescription="Polisi\n110"
+                android:padding="9dp"
+                android:src="@drawable/ic_shield" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Polisi\n110"
+                android:textColor="@color/medalert_blue"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardFire"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_pink_circle"
+                android:contentDescription="Pemadam\n113"
+                android:padding="9dp"
+                android:src="@drawable/ic_flame" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Pemadam\n113"
+                android:textColor="@color/medalert_blue"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardTips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_teal_circle"
+                android:contentDescription="Tips\nP3K"
+                android:padding="9dp"
+                android:src="@drawable/ic_info"
+                android:tint="@color/medalert_teal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Tips\nP3K"
+                android:textColor="@color/medalert_blue"
+                android:textSize="12sp" />
+        </LinearLayout>
+        </androidx.gridlayout.widget.GridLayout>
     </LinearLayout>
 </ScrollView>
