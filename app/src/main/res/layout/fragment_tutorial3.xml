@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/medalert_chip_gray">
+    android:background="@color/medalert_pink_bg">
 
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="112dp"
         android:background="@drawable/bg_circle_white"
-        android:contentDescription="Faskes terdekat"
+        android:contentDescription="Fasilitas kesehatan terdekat"
         android:padding="40dp"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_pin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
